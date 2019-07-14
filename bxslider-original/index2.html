@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>bx-slider</title>
+    <link rel="stylesheet" href="css/jquery.bxslider.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="js/jquery.bxslider.min.js"></script>
+</head>
+<body>
+<div id="contents">
+    <ul id="sample">
+        <li><img src="images/1.jpg"></li>
+        <li><img src="images/2.jpg"></li>
+        <li><img src="images/3.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+        <li><img src="images/5.jpg"></li>
+
+    </ul>
+    <div class="custom-thumb">
+        <a data-slide-index="0" href="#"><img src="images/1.jpg" width="160" height="100" title="test" /></a>
+        <a data-slide-index="1" href="#"><img src="images/2.jpg" width="160" height="100" /></a>
+        <a data-slide-index="2" href="#"><img src="images/3.jpg" width="160" height="100" /></a>
+        <a data-slide-index="3" href="#"><img src="images/4.jpg" width="160" height="100" /></a>
+        <a data-slide-index="4" href="#"><img src="images/5.jpg" width="160" height="100" /></a>
+    </div>
+</div>
+
+<script>
+$(function() {
+    var slider = $('#sample').bxSlider({
+        pagerCustom: '.custom-thumb',
+            captions: trueO
+    });
+    $('.custom-thumb a').mouseover(function() {
+        var currentSlide = $(this).attr('data-slide-index');
+        slider.goToSlide(currentSlide);
+    });
+
+});
+</script>
+</body>
+</html>

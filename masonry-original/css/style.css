@@ -1,0 +1,33 @@
+/*.container {
+    width: 100%;
+    text-align: center
+}
+*/
+.container {
+width: 80%;
+margin:auto;
+padding: auto;
+text-align: center;
+
+}
+
+#masonry {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #EEE;
+    overflow: auto;
+margin:auto;
+}
+
+.grid {
+    width: 47%;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+    background: #424242;
+    color: #fff;
+    display: inline;
+}
+.grid img {
+    width: 100%;
+}

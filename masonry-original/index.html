@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="css/masonry-docs.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+    $(function() {
+
+        $('#masonry').masonry({
+            itemSelector: '.grid',
+            // isFitWidth: true,
+            isAnimated: true
+        });
+    });
+    </script>
+</head>
+
+<body>
+<div class=container>
+    <div id="masonry">
+        <div class="grid"><img src="https://cdn-images-1.medium.com/max/1600/1*mONNI1lG9VuiqovpnYqicA.jpeg" alt="">fsafdsadfsa</div>
+        <div class="grid"><img src="https://peopledotcom.files.wordpress.com/2018/02/two-tone-cat.jpg" alt=""><img src="https://peopledotcom.files.wordpress.com/2018/02/two-tone-cat.jpg" alt="">adsfdasgagdsafdsa</div>
+        <div class="grid"><img src="images/1.jpg" alt="">adafdsafds</div>
+        <div class="grid"><img src="images/1.jpg" alt="">fdsafdasafdasfsa</div>
+        <div class="grid"><img src="images/1.jpg" alt="">fsafas</div>
+        <div class="grid"><img src="images/1.jpg" alt=""></div>
+        <div class="grid"><img src="images/1.jpg" alt=""></div>
+    </div>
+</div>
+</body>
