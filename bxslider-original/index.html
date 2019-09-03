@@ -10,15 +10,15 @@
         $(function(){
             $.each($('.bxslider').bxSlider({
                 mode: "fade",
-                ticker: true,
                 auto: true,
                 infiniteLoop: true,
                 autoControls: true,
                 stopAutoOnClick: true,
-                pager: true,
                 pause: 2000,
                     captions: true,
                     adaptiveHeight: true,
+                    minSlides: 3,
+                                        maxSlides: 3,
     slideWidth: 500
             }));
         });
@@ -38,3 +38,21 @@
     </ul>
 </body>
 </html>
+
+<!--     <script>
+        $(function(){
+            $.each($('.bxslider').bxSlider({
+                mode: "fade",
+                ticker: true,
+                auto: true,
+                infiniteLoop: true,
+                autoControls: true,
+                stopAutoOnClick: true,
+                pager: true,
+                pause: 2000,
+                    captions: true,
+                    adaptiveHeight: true,
+    slideWidth: 500
+            }));
+        });
+    </script> -->
