@@ -9,23 +9,20 @@
     <script src="js/jquery.bxslider.min.js"></script>
     <script>
 
-    $(function() {
-        $.each($('.bxslider').bxSlider({
-            auto: true,
-            infiniteLoop: true,
-            autoControls: true,
-            stopAutoOnClick: true,
-            pager: true,
-            pause: 2000,
-            captions: true,
-            adaptiveHeight: true,
-            slideWidth: 300,
-            minSlides: 3,
-            speed: 15000,
-            maxSlides: 4,
-            moveSlides: 1
-        }));
-    });
+        $(function() {
+            $.each($('.bxslider').bxSlider({
+                ticker: true,
+                slideWidth: 200,
+                slideMargin: 3,
+                speed: 25000,
+                captions: true,
+                minSlides: 3,
+                maxSlides: 7,
+                infiniteLoop: true,
+                useCSS: false
+
+            }));
+        });
 
     </script>
 </head>

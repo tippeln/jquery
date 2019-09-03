@@ -1,0 +1,639 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, minimum-scale=0.5">
+<title>軽量レスポンシブ対応スライダーjQueryプラグイン：jQuery Short Slider</title>
+<style type="text/css">
+@font-face{font-family:"fontawesome-webfont";src:url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.eot') format('embedded-opentype'),  url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.woff') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.ttf') format('truetype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg') format('svg')}</style>
+<link rel="stylesheet" href="http://www.pccinc.jp/assets/css/style.css">
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+
+<body id="top">
+<!--jQuery Short Slider  -->
+<nav id="header">
+	<div class="headerInner">
+		<h1 id="logo"><a href="http://www.pccinc.jp/"><img src="http://www.pccinc.jp/assets/images/logo.png"></a></h1>
+		<a href="" class="menuBtn">menu</a>
+	</div>
+	<nav class="gnav">
+		<ul>
+			<li class="active"><a href="http://www.pccinc.jp/company/">company</a></li>
+			<li><a href="http://www.pccinc.jp/#anchor-products">products</a></li>
+			<li><a href="http://www.pccinc.jp/#anchor-member">member</a></li>
+			<li><a href="http://www.pccinc.jp/#anchor-blog">blog</a></li>
+			<li><a href="http://www.pccinc.jp/contact/">contact</a></li>
+		</ul>
+	</nav>
+</nav>
+<div id="Wrap">
+
+	<div id="pluginIntro" class="productHeader pluginIntro">
+		<div class="productHeaderInner">
+			<h1>jQuery Short Slider</h1>
+		</div>
+	</div>
+		
+	<div id="Main">
+	
+		<section class="section" id="shortsliedr">
+			<a href="#shortsliedr" class="anchor"></a>
+		
+			<div id="pluginArea">
+				<div class="pluginAreaInner">
+				
+					<section class="example">
+<script>
+// このscriptはスイッチで切り替え用のためのものなのでプラグインとは特に関係ありません。
+$(window).load(function(){
+	var itemsH;
+	itemHresize()
+	$('.pattern li a').click( function(){
+		$('.pattern li a').removeClass('active');
+		$(this).addClass('active');
+		$('.item').removeClass('active');
+		$($(this).attr('href')).addClass('active');
+		itemsH = $($(this).attr('href')).height();
+		$('.items').stop().animate({height:itemsH})
+		return false;
+	});
+	$(window).resize( function(){ itemHresize(); });
+	function itemHresize(){
+		itemsH = $('.item.active').height();
+		$('.items').stop().animate({height:itemsH})
+	}
+})
+</script>
+						<div class="pattern notScroll">
+							<ul>
+								<li><a href="#item1" class="active">nomal</a></li>
+								<li><a href="#item2">carousel</a></li>
+								<li><a href="#item3">fade</a></li>
+								<li><a href="#item4">random</a></li>
+								<li><a href="#item5">one slide only</a></li>
+								<li><a href="#item6">no image</a></li>
+							</ul>
+						</div>
+					
+						<div class="items">
+
+<!-- nomal
+********************************************************************************************** -->
+							<div class="item active" id="item1">
+								<h2>nomal</h2>
+								<div class="slide1">
+									<ul>
+										<li><a href=""><img src="./images/image1.jpg" alt=""></a></li>
+										<li><img src="./images/image2.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image3.jpg" alt=""></a></li>
+										<li><img src="./images/image4.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image5.jpg" alt=""></a></li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide1').shortslider();
+									});
+								</script>
+								<div class="syntaxHighlight">
+								<span class="label">JS</span>
+<pre><code class="html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide1').shortslider();
+	});
+&lt;/script&gt;
+</code></pre>
+								</div>
+							</div>
+							
+<!-- carousel
+********************************************************************************************** -->
+							<div class="item" id="item2">
+								<h2>carousel</h2>
+								<div class="slide2">
+									<ul>
+										<li><a href=""><img src="./images/image1.jpg" alt=""></a></li>
+										<li><img src="./images/image2.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image3.jpg" alt=""></a></li>
+										<li><img src="./images/image4.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image5.jpg" alt=""></a></li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide2').shortslider({
+											style : 'carousel'
+										});
+									});
+								</script>
+								<div class="syntaxHighlight">
+								<span class="label">JS</span>
+<pre><code class="html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide2').shortslider({
+			style : 'carousel'
+		});
+	});
+&lt;/script&gt;
+</code></pre>
+								</div>
+							</div>
+							
+<!-- fade
+********************************************************************************************** -->
+							<div class="item" id="item3">
+								<h2>fade</h2>
+								<div class="slide3">
+									<ul>
+										<li><a href=""><img src="./images/image1.jpg" alt=""></a></li>
+										<li><img src="./images/image2.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image3.jpg" alt=""></a></li>
+										<li><img src="./images/image4.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image5.jpg" alt=""></a></li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide3').shortslider({
+											style : 'fade'
+										});
+									});
+								</script>
+								<div class="syntaxHighlight">
+								<span class="label">JS</span>
+<pre><code class="html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide3').shortslider({
+			style : 'fade'
+		});
+	});
+&lt;/script&gt;
+</code></pre>
+								</div>
+							</div>
+							
+<!-- random
+********************************************************************************************** -->
+							<div class="item" id="item4">
+								<h2>random</h2>
+								<div class="slide4">
+									<ul>
+										<li><a href=""><img src="./images/image1.jpg" alt=""></a></li>
+										<li><img src="./images/image2.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image3.jpg" alt=""></a></li>
+										<li><img src="./images/image4.jpg" alt=""></li>
+										<li><a href=""><img src="./images/image5.jpg" alt=""></a></li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide4').shortslider({
+											rand : true
+										});
+									});
+								</script>
+								<div class="syntaxHighlight">
+								<span class="label">JS</span>
+<pre><code class="html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide4').shortslider({
+			rand : true
+		});
+	});
+&lt;/script&gt;
+</code></pre>
+								</div>
+							</div>
+							
+							
+<!-- oneSlide
+********************************************************************************************** -->
+							<div class="item" id="item5">
+								<h2>one slide only</h2>
+								<div class="slide5">
+									<ul>
+										<li><img src="./images/image1.jpg" alt=""></li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide5').shortslider({
+											indicator : true,
+											PrevNext : true
+										});
+									});
+								</script>
+								<div class="syntaxHighlight">
+								<span class="label">JS</span>
+<pre><code class="html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide5').shortslider({
+			indicator : true,
+			PrevNext : true
+		});
+	});
+&lt;/script&gt;
+</code></pre>
+								</div>
+							</div>
+							
+<!-- noImage
+********************************************************************************************** -->
+							<div class="item" id="item6">
+								<h2>no image</h2>
+								<div class="slide6">
+									<ul>
+										<li>
+											<div style="padding:30px;">
+												<h3 class="title1">HTMLのみのスライドについて</h3>
+												<p>HTMLを挿入することもできますが、縦横比が3:4固定となります。</p>
+												<p>レスポンシブを軽量化するため、1つ目の&lt;li&gt;の中にある画像をcloneし&lt;ul&gt;の裏側に配置しています（不可視）。<br>
+												そして&lt;ul&gt;自体をposition:absoluteすることで縦幅の比率を保ったスライドを実現しています。</p>
+												<p>ですので、画像が&lt;li&gt;の:first-childに存在しない場合は縦横比3:2のダミー画像を挿入することでレイアウトを保つ仕組みになっています。</p>
+											</div>
+										</li>
+										<li>
+											<div style="padding:30px;">
+												<h3 class="title1">画像無しの際に縦横比を変更する方法</h3>
+												<p>display:noneにでもしてダミー画像を設置して下さい。</p>
+												<div class="syntaxHighlight" style="width:60%; float:left; margin-right:20px;">
+												<span class="label">例</span>
+<pre><code class="html">
+&lt;ul&gt;
+	&lt;li&gt;
+		<strong>&lt;img style="display:none;" src="/images/DUMMY.jpg"&gt;</strong>
+		&lt;p&gt;HTML&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;HTML&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;HTML&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</strong>
+</code></pre>
+												</div>
+												
+												<p style="margin-top:10px; margin-bottom:10px;">これで画像を拾うので、縦横比が保持されます。</p>
+												<p style="margin-bottom:10px;">※ あくまで1つ目のリストの最初の画像をcloneしますので、スライドの2枚目が画像でもcloneしません。</p>
+												<p style="margin-bottom:10px;">設置代行も行っておりますので、<a href="/contact/">contact</a>よりお問い合わせください。
+											</div>
+										</li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide6').shortslider({
+											style : 'fade',
+											speed : 10000
+										});
+									});
+								</script>
+								<div class="syntaxHighlight">
+								<span class="label">JS</span>
+<pre><code class="html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide6').shortslider({
+			style : 'fade',
+			speed : 10000
+		});
+	});
+&lt;/script&gt;
+</code></pre>
+								</div>
+							</div>
+							
+						</div>
+					</section>
+					
+					<section class="text">
+						<h2>軽量で高機能なスライダー</h2>
+						<p>ウェブ制作の現場でありがちな機能をほぼ網羅したスライダーです。グレーの機能はまだ未実装で、実装予定です。これだけである程度の要件には耐えられるように設計しています。<br>
+						使い方は簡単ですが、スライド要素に画像が含まれていない場合は少し使い方が特殊です。上のサンプルの「no image」を確認してください。</p>
+						<div class="features">
+							<ul>
+								<li>カルーセル<span>carousel</span></li>
+								<li>クロスフェード<span>cross fade</span></li>
+								<li>ランダム<span>random</span></li>
+								<li>レスポンシブ標準対応<span>Responsive standard</span></li>
+								<li>複数設置可<span>Multiple</span></li>
+								<li class="disabled">サムネイル対応<span>thumbnail</span></li>
+								<li>HTML可<span>possible html</span></li>
+								<li>フリック対応<span>flick</span></li>
+								<li class="disabled">複数アイテム<span>Multiple Items</span></li>
+							</ul>
+						</div>
+					</section>
+					<section class="text">
+						<h2>OPTION</h2>
+						<div class="basictable table1">
+							<table>
+								<tr>
+									<th>itemDisplay</th>
+									<td>
+										<span class="default"><span>default</span>.itemDisplay</span>
+										<p>スライドのリスト( &lt;ul&gt;～&lt;/ul&gt; )をWrapするクラス。特に問題が無ければ変更の必要はありません。</p>
+									</td>
+								</tr>
+								<tr>
+									<th>style</th>
+									<td>
+										<span class="default"><span>default</span>nomal</span>
+										<dl class="dlstyle1">
+											<dt>nomal</dt><dd>一般的なスライダーの動き。ラストまで言ったら逆回転で1まで戻る。</dd>
+											<dt>carousel</dt><dd>左右どちらに進んでも逆回転せずシームレスにスライドが続きます。カルーセル。</dd>
+											<dt>fade</dt><dd>スライドせず、フェードイン・フェードアウトで切り替わります。クロスフェード。</dd>
+										</dl>
+									</td>
+								</tr>
+								<tr>
+									<th>flick</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>スマートフォンやタブレットなどのタッチパネルデバイスでフリック操作を可能にします。</p>
+									</td>
+								</tr>
+								<tr>
+									<th><s style="color:#aaa">thumbnails</s></th>
+									<td>
+										準備中
+									</td>
+								</tr>
+								<tr>
+									<th>rand</th>
+									<td>
+										<span class="default"><span>default</span>false</span>
+										<p>ランダムにスライドを変更します。主にfade時の利用を想定していますが、nomal及びcarouselでも問題なくインジケータと同期して動作します。デフォルトはfalseです。</p>
+									</td>
+								</tr>
+								<tr>
+									<th>hoverStop</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>マウスをスライド上に乗せている間、オートスライドをストップします。オプションのautoがfalseの時は何も起こりません。</p>
+									</td>
+								</tr>
+								<tr>
+									<th>speed</th>
+									<td>
+										<span class="default"><span>default</span>5000</span>
+										<p>スライドが発生するタイミングです。ミリ秒単位で指定（5000なら5秒）。オプションのautoがfalseの時は無効です。</p>
+									</td>
+								</tr>
+								<tr>
+									<th>auto</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>スライダーがオートでスライドします。</p>
+									</td>
+								</tr>
+								<tr>
+									<th>indicator</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>インジケータを表示します。場所は、&lt;div class="itemDisplay"&gt;～&lt;/div&gt;の下に挿入されます。</p>
+										<div class="syntaxHighlight">
+											<span class="label">例</span>
+<pre><code class="html">
+&lt;div class="itemDisplay"&gt; ～ &lt;/div&gt;
+<strong>&lt;div class="indicator"&gt;
+	&lt;span&gt;1&lt;/span&gt;
+	&lt;span&gt;2&lt;/span&gt;
+	&lt;span class="current"&gt;3&lt;/span&gt;
+	&lt;span&gt;4&lt;/span&gt;
+	&lt;span&gt;5&lt;/span&gt;
+&lt;/div&gt;</strong>
+</code></pre>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>indicatorStyle</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>インジケータ用のCSSを挿入します。</p>
+										<div class="syntaxHighlight">
+											<span class="label">例<span>(.slide1に適用した場合)</span></span>
+<pre><code class="css">
+.slide1 .indicator { text-align:center; overflow:hidden; text-align:center; width:100%; height:20px; position:relative; top:-30px;}
+.slide1 .indicator span { display:inline-block; width:10px; height:10px; text-indent:-9999px; margin:5px; vertical-align:top; cursor:pointer; border-radius:50%; background-color:#999;}
+.slide1 .indicator span.current { background-color:#333;}
+</code></pre>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>PrevNext</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>Prevボタン・Nextボタンを表示します。場所は、&lt;div class="itemDisplay"&gt;～&lt;/div&gt;及びインジケータの下に挿入されます。</p>
+										<div class="syntaxHighlight">
+											<span class="label">HTML</span>
+<pre><code class="html">
+&lt;div class="itemDisplay"&gt; ～ &lt;/div&gt;
+&lt;div class="indicator"&gt; ～ &lt;/div&gt;
+<strong>&lt;a class="prev" href="" style="top: XXXpx; margin-top: -15px;"&gt;prev&lt;/a&gt;
+&lt;a class="next" href="" style="top: XXXpx; margin-top: -15px;"&gt;next&lt;/a&gt;</strong>
+</code></pre>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>PrevNextStyle</th>
+									<td>
+										<span class="default"><span>default</span>true</span>
+										<p>Prevボタン・Nextボタン用のCSSを挿入します。<br>
+										この際、スライド要素の高さのちょうど真ん中に来るようCSS及びJSが調節されています。（windowの横幅を縮めてみてください）</p>
+										<div class="syntaxHighlight">
+											<span class="label">例<span>(.slide1に適用した場合)</span></span>
+<pre><code class="css">
+.slide1 { position:relative;}
+.slide1 .prev { position:absolute; display:block; width:30px; height:30px; top:210px; margin-top:-15px; left:10px; text-indent:-9999px; background:#333; border-radius:50%;}
+.slide1 .next { position:absolute; display:block; width:30px; height:30px; top:210px; margin-top:-15px; right:10px; text-indent:-9999px; background:#333; border-radius:50%;}
+.slide1 .prev:after { content:""; display:block; position:absolute; top:10px; left:4px; border:solid 5px; border-color:transparent; border-right:solid 9px #fff;} 
+.slide1 .next:after { content:""; display:block; position:absolute; top:10px; right:4px; border:solid 5px; border-color:transparent; border-left:solid 9px #fff;}
+</code></pre>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</section>
+					
+					<section class="text">
+						<h2>使い方</h2>
+						<p>スライドさせたい要素をリスト化してdivでWrapし、任意のclass or IDを振ります。<br>
+						jQueryの本体を読み込ませたあと、Wrapしたdivに対して.shortslider()します。</p>
+						<div class="syntaxHighlight">
+							<span class="label">HTML</span>
+<pre><code class="html">
+// スライドさせたい要素をリスト化してdivでWrapします。
+<strong>&lt;div class="slide1"&gt;</strong>
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="XXX"&gt;&lt;img src="/images/image1.jpg" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src="/images/image2.jpg" alt=""&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="XXX"&gt;&lt;img src="/images/image3.jpg" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="XXX"&gt;&lt;img src="/images/image4.jpg" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="XXX"&gt;&lt;img src="/images/image5.jpg" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+<strong>&lt;/div&gt;</strong>
+</code></pre>
+						</div>
+						<div class="syntaxHighlight mb30">
+							<span class="label">JS</span>
+<pre><code class="html">	
+// jQueryの本体を読み込ませたあと、jquery.shortslider.jsを読み込ませ、スライダーの要素に対して.shortslider()します。	
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$( function(){
+		$('.slide1').shortslider();
+	});
+&lt;/script&gt;
+</code></pre>
+						</div>
+						
+						<h3 class="title2">サイズについて</h3>
+						<dl class="dlstyle1 mb30">
+							<dt>横幅</dt><dd>&lt;ul&gt;をWrapしたdivの横幅に依存します。</dd>
+							<dt>縦幅</dt><dd>スライド1枚目の画像の縦横比を保持したまま拡大されます。<br>Wrapしたdivの横幅を元に、画像の縦横比が再現されます。cloneされた画像はwidth:100%;になるため小さな画像でも縦横比を保持したまま拡大されます。<br>
+							スライドの画像自体は拡大されません。(CSSで適宜調節してください)</dd>
+						</dl>
+						<p class="mb30">以下の例では、.slide7のmax-widthを400pxとしています。<br>
+						またスライド1枚目に正方形の画像を設置しているので、この場合は表示領域も正方形になります。(.itemDisplayに背景色をつけてわかりやすくしています)</p>
+						
+								<div class="slide7">
+									<ul>
+										<li><img src="./images/test.jpg" alt=""></li>
+										<li><img src="./images/image2.jpg" alt=""></li>
+										<li><img src="./images/image3.jpg" alt=""></li>
+										<li><img src="./images/image4.jpg" alt=""></li>
+										<li><img src="./images/image5.jpg" alt=""></li>
+									</ul>
+								</div>
+								<script>
+									$( function(){
+										$('.slide7').shortslider({
+											style : 'fade',
+											auto : false
+										});
+									});
+								</script>
+								<style type="text/css">
+									.slide7 { max-width:400px; margin:0 auto 15px;}
+									.slide7 .itemDisplay { background:#ccc}
+									.slide7 img { max-width:100%；}
+								</style>
+										<div class="syntaxHighlight">
+											<span class="label">HTML</span>
+<pre><code class="html">
+&lt;div class="slide7"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;img src="/images/test.jpg" alt=""&gt;&lt;/li&gt; &lt;!-- 縦横比1:1の画像 --&gt;
+		&lt;li&gt;&lt;img src="/images/image2.jpg" alt=""&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src="/images/image3.jpg" alt=""&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src="/images/image4.jpg" alt=""&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src="/images/image5.jpg" alt=""&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+										</div>
+										<div class="syntaxHighlight">
+											<span class="label">JS</span>
+<pre><code class="js">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/js/jquery.shortslider.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	$('.slide7').shortslider({
+		style : 'fade',
+		auto : false
+	});
+&lt;/script&gt;
+</code></pre>
+										</div>
+										<div class="syntaxHighlight">
+											<span class="label">CSS</span>
+<pre><code class="css">
+&lt;style type="text/css"&gt;
+	.slide7 { max-width:400px; margin:0 auto 15px;}
+	.slide7 .itemDisplay { background:#ccc}
+	.slide7 img { max-width:100%；}
+&lt;/style&gt;
+</code></pre>
+										</div>
+						
+					</section>
+					
+					<section class="text">
+						<h2>更新履歴</h2>
+						<dl class="dlstyle1">
+							<dt>2015,10,09</dt><dd>GitHubへコードを公開。</dd>
+							<dt>2016,02,10</dt><dd>切り替わり時の移動スピードを設定できるようにした。(movementSpeed)</dd>
+						</dl>
+					</section>
+					
+					<section class="text">
+						<h2>download</h2>
+						<ul class="dlLink">
+							<li class="github"><a href="https://github.com/1000git/jQueryShortSlider" target="_blank" onClick="ga('send', 'event', 'link', 'click', 'https://github.com/1000git/jQueryShortSlider');">GitHub</a></li>
+							<li class="zip"><a href="https://github.com/1000git/jQueryShortSlider/archive/master.zip" onClick="ga('send', 'event', 'download', 'click', 'https://github.com/1000git/jQueryShortSlider/archive/master.zip');">SAMPLE(ZIP)<span>HTML/IMAGES/JS</span></a></li>
+							<li class="uncompiled"><a href="http://www.pccinc.jp/assets/js/jquery.shortslider.js" target="_blank" onClick="ga('send', 'event', 'download', 'click', '/assets/js/jquery.shortslider.js');">UNCOMPILED<span>jquery.shortslider.js(12.8KB)</span></a></li>
+							<li class="compiled"><a href="http://www.pccinc.jp/assets/js/jquery.shortslider.min.js" target="_blank" onClick="ga('send', 'event', 'download', 'click', '/assets/js/jquery.shortslider.min.js');">COMPILED<span>jquery.shortslider.min.js(7.3KB)</span></a></li>
+						</ul>
+					</section>
+					
+						<div class="author txC">
+							author : <a href="http://www.pccinc.jp/member_chiba/" rel="author" onClick="ga('send', 'event',  'link', 'click', '/member_chiba/');">Chiba Takeshi</a>
+						</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+</div>
+	
+<div id="Footer">
+	<div id="pageTop" class="close"><a href="#top">pagetop</a></div>
+	<div id="FooterInner">
+		<div id="copy">p.c.c.inc</div>
+	</div>
+</div>
+
+
+<!-- highlight.js -->
+<link rel="stylesheet" href="http://www.pccinc.jp/assets/css/github.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script>$( function(){ hljs.initHighlightingOnLoad();});</script>
+
+<script src="http://www.pccinc.jp/assets/js/jquery.generalSidebar.js"></script>
+<script src="http://www.pccinc.jp/assets/js/jquery.easing.1.3.js"></script>
+<script src="http://www.pccinc.jp/assets/js/common.js"></script>
+
+<script src="./js/jquery.shortslider.js"></script>
+
+</body>
+</html>
